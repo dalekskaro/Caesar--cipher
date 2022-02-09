@@ -51,13 +51,13 @@ public class EntryPoint {
 
     public static String Enycrypt(String m, int k_E) {
         System.out.println("Enycrypt: " + m);
+        System.out.println("FOR ENYCRYPT: The offset: " + k_E);
         String str_E = "";
         for (int i = 0; i < m.length(); i++) {
             char s = m.charAt(i);
             if ('a' <= s && s <= 'z') {  //если не добавить это условние, то шифроваться так же будут пробелы и символы
                 s += k_E % 26;
-                if ('a' > s)
-                    s += 26;   //если символы "вылетают" из алфавита, то мы эти символы возвращаем на место
+                if ('a' > s) s += 26;   //если символы "вылетают" из алфавита, то мы эти символы возвращаем на место
                 if ('z' < s) s -= 26;
             } else if ('A' <= s && s <= 'Z') {
                 s += k_E % 26;
@@ -66,11 +66,13 @@ public class EntryPoint {
             }
             str_E += s;
         }
+        System.out.println("FOR ENYCRYPT: Result: " + str_E);
         return str_E;
     }
 
     public static String Decrypt(String m, int k_D) {
         System.out.println("Decrypt: " + m);
+        System.out.println("FOR DECRYPT: The offset: " + k_D);
         String str_D = "";
         for (int i = 0; i < m.length(); i++) {
             char s = m.charAt(i);
@@ -86,6 +88,7 @@ public class EntryPoint {
             }
             str_D += s;
         }
+        System.out.println("FOR DECRYPT: Result: " + str_D);
         return str_D;
     }
 }

@@ -1,27 +1,30 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.api.Test;
 
 public class CaesarTest {
 
-    //@Test
-   /* void EnycryptEngTest(){
-        //Assertions.assertTrue(false);
-        //"First Programming Task at QA", "-o", "3", "-e"
-        System.out.println("Code executes before this test method: ");
-        //EntryPoint EnEng = new EntryPoint;
-        Assertions.assertEquals("Iluvw", "\"First Programming Task at QA\", \"-o\", \"3\", \"-e\"");
-    }*/
-    @ParameterizedTest
-        //@ValueSource (String ("First Programming Task at QA", -o, 3, -e))
-    //@CsvFileSource (resources = "/testData.csv")
-    @CsvSource(value = {
-            "FirstProgrammingTaskatQA, 3, IluvwSurjudpplqjWdvndwTD",
-            "Первая プログラム av, 3, Первая プログラム dy"
-    })
-
-    void EnycryptEngTest (String str, int num, String result) {
-      String EnyEng = EntryPoint.Enycrypt(str, num);
-      Assertions.assertEquals(EnyEng, result);
+    @Test
+   void EasyEnycryptEngTest(){
+        Assertions.assertEquals(EntryPoint.Enycrypt("First Programming Task at QA",3),"Iluvw Surjudpplqj Wdvn dw TD");
+    }
+    @Test
+    void EasyDecryptEngTest(){
+        Assertions.assertEquals(EntryPoint.Decrypt("Iluvw Surjudpplqj Wdvn dw TD",3),"First Programming Task at QA");
+    }
+    @Test
+    void EasyEnycryptNoEngTest(){
+        Assertions.assertEquals(EntryPoint.Enycrypt("Первая プログラム av",3),"Первая プログラム dy");
+        //Assertions.assertNotEquals(EntryPoint.Enycrypt("Первая プログラム av",3),"q");
+    }
+    @Test
+    void EasyDecryptNoEngTest(){
+        Assertions.assertEquals(EntryPoint.Decrypt("Первая プログラム dy",3),"Первая プログラム av");
+        //Assertions.assertNotEquals(EntryPoint.Decrypt("Первая プログラム dy",3),"q");
+    }
+    @Test
+    void HardEnycryptEngTest () {
+      String str = EntryPoint.Enycrypt("First", 3);
+      String new_str = EntryPoint.Decrypt("Iluvw", 3);
+      Assertions.assertEquals(str, new_str);
     }
 }
