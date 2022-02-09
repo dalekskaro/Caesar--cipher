@@ -3,6 +3,7 @@ public class EntryPoint {
         //cd C:\Users\Ira\IdeaProjects\Caesar cipher\src
         //javaс EntryPoint.java
         //java EntryPoint -e "First Programming Task at QA" -o 3
+        //bruh
         switch (args[0]) {
             case "-e": //шифрование
                 System.out.println("Enycrypt: " + args[1]);
