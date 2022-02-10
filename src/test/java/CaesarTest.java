@@ -23,8 +23,22 @@ public class CaesarTest {
     }
     @Test
     void HardEnycryptEngTest () {
-      String str = EntryPoint.Enycrypt("First", 3);
-      String new_str = EntryPoint.Decrypt("Iluvw", 3);
-      Assertions.assertEquals(str, new_str);
+        String first_str = "First Programming Task at QA";
+      Assertions.assertEquals(first_str, EntryPoint.Decrypt(EntryPoint.Enycrypt(first_str, 3), 3));
+    }
+    @Test
+    void HardDecryptEngTest () {
+        String first_str = "Iluvw Surjudpplqj Wdvn dw TD";
+        Assertions.assertEquals(first_str, EntryPoint.Enycrypt(EntryPoint.Decrypt(first_str, 3), 3));
+    }
+    @Test
+    void HardEnycryptNoEngTest () {
+        String first_str = "Первая プログラム av";
+        Assertions.assertEquals(first_str, EntryPoint.Decrypt(EntryPoint.Enycrypt(first_str, 3), 3));
+    }
+    @Test
+    void HardDecryptNoEngTest () {
+        String first_str = "Первая プログラム dy";
+        Assertions.assertEquals(first_str, EntryPoint.Enycrypt(EntryPoint.Decrypt(first_str, 3), 3));
     }
 }
