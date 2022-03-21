@@ -1,8 +1,7 @@
+package com.daleks.junit;
+
 public class EntryPoint {
     public static void main(String[] args) {
-        //cd C:\Users\Ira\IdeaProjects\Caesar cipher\src
-        //javaс EntryPoint.java
-        //java EntryPoint -e "First Programming Task at QA" -o 3
         for (int n = 0; n < args.length; n++) {  //n- -e or -d;
             switch (args[n]) {
                 case "-e": //шифрование
